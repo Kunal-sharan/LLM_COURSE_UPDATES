@@ -43,7 +43,11 @@ def carousel(map):
     # Display the current text item
     with st.container(border=True,height=300):
         st.header(names[st.session_state.index])
-        st.write(f"{text_items[st.session_state.index]}")
+        d = text_items[st.session_state.index]
+        for j in d:
+           with st.container(border=True):
+              st.write(f"## {j}")
+              st.write(d[j])
 
     col1, col2 = st.columns([7,1])
     
