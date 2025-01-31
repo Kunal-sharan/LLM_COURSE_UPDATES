@@ -136,7 +136,7 @@ df["Time Delta"] = pd.to_timedelta(df["Total Duration(hrs:min:sec)"]).dt.total_s
 
 st.title("LLM course duration analysis")
 if st.button("Show latest data"):
-  with st.spinner("Analyzing..):  
+  with st.spinner("Analyzing.."):  
 # Sort original DataFrame by Time Duration (but keep the original format)
     sorted_df = df.sort_values(by="Time Delta",ascending=False).drop(columns=["Time Delta"])
 
