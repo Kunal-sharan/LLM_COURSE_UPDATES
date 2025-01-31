@@ -41,11 +41,11 @@ def carousel(map):
         st.session_state.index = 0
 
     # Display the current text item
-    with st.container(border=True,height=500):
+    with st.container(border=True,height=300):
         st.header(names[st.session_state.index])
         st.markdown(f"{text_items[st.session_state.index]}")
 
-    col1, col2 = st.columns([5,1])
+    col1, col2 = st.columns([7,1])
     
     with col1:
         if st.button("Previous"):
@@ -136,6 +136,7 @@ df["Time Delta"] = pd.to_timedelta(df["Total Duration(hrs:min:sec)"]).dt.total_s
 
 st.title("LLM course duration analysis")
 if st.button("Show latest data"):
+  with st.spinner("Analyzing..):  
 # Sort original DataFrame by Time Duration (but keep the original format)
     sorted_df = df.sort_values(by="Time Delta",ascending=False).drop(columns=["Time Delta"])
 
