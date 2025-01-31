@@ -41,7 +41,7 @@ def carousel(map):
         st.session_state.index = 0
 
     # Display the current text item
-    with st.container(border=True,height=300):
+    with st.container(border=True,height=450):
         st.header(names[st.session_state.index])
         d = text_items[st.session_state.index]
         for j in d:
