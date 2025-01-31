@@ -160,7 +160,7 @@ if st.button("Show latest data"):
                             text="Total Duration(hrs:min:sec)",
                             labels={"Time Delta": "Time (seconds)"},
                             title="Leaderboard Ranking",
-                            color="Time Delta", color_continuous_scale="Greens")
+                            color="Time Delta", color_continuous_scale="Greens",orientation="h")
     st.plotly_chart(fig_leaderboard)
     # df["Total Duration(hrs:min:sec)"] = pd.to_timedelta(df["Total Duration(hrs:min:sec)"])
     carousel(all_learnings)
