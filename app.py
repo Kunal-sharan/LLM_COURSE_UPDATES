@@ -116,8 +116,8 @@ for i in all_roll:
   s_rows = df[df["Roll Number"]==i]
   learnings = ""
   for j in range(len(s_rows)):
-    learnings+=str(s_rows.iloc[j]['Summarise your days learing on the topics.'])+"\n"
-  summ_learnings = get_summary(learnings)  
+    learnings+= str(s_rows.iloc[j]['Timestamp'])+" :" +str(s_rows.iloc[j]['Summarise your days learing on the topics.'])+"\n"
+  summ_learnings = learnings 
   k = df[df['Roll Number']==i].iloc[0]['Name']+f"({i})"
   all_learnings[k] = all_learnings.get(k,"")+summ_learnings
 # all_learnings    
