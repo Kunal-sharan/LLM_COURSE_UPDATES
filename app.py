@@ -3,27 +3,27 @@ import requests
 from datetime import datetime, timedelta
 import streamlit as st
 import plotly.express as px
-from groq import Groq
+# from groq import Groq
 st.set_page_config(layout="wide")
 
 
-client = Groq(
-    api_key=st.secrets["GROQ_API_KEY"],
-)
-def get_summary(txt):
+# client = Groq(
+#     api_key=st.secrets["GROQ_API_KEY"],
+# )
+# def get_summary(txt):
    
-  chat_completion = client.chat.completions.create(
-      messages=[
-          {
-              "role": "user",
-              "content":f"Using This {txt} \n generate a simple , concise summary whithout adding anything extra just provide a simple and complete summary keep the tone first person if you can not generate a summary return the original text"
-          }
-      ],
-      model="llama-3.3-70b-versatile",
-      stream=False,
-  )
+#   chat_completion = client.chat.completions.create(
+#       messages=[
+#           {
+#               "role": "user",
+#               "content":f"Using This {txt} \n generate a simple , concise summary whithout adding anything extra just provide a simple and complete summary keep the tone first person if you can not generate a summary return the original text"
+#           }
+#       ],
+#       model="llama-3.3-70b-versatile",
+#       stream=False,
+#   )
 
-  return chat_completion.choices[0].message.content
+#   return chat_completion.choices[0].message.content
 
 @st.fragment
 def carousel(map):
@@ -116,7 +116,7 @@ for i in all_roll:
   s_rows = df[df["Roll Number"]==i]
   learnings = ""
   for j in range(len(s_rows)):
-    learnings+= str(s_rows.iloc[j]['Timestamp'])+" :" +str(s_rows.iloc[j]['Summarise your days learing on the topics.'])+"\n"
+    learnings+= str(s_rows.iloc[j]['Timestamp'])+" :" +str(s_rows.iloc[j]['Summarise your days learing on the topics.'])+"\"
   summ_learnings = learnings 
   k = df[df['Roll Number']==i].iloc[0]['Name']+f"({i})"
   all_learnings[k] = all_learnings.get(k,"")+summ_learnings
