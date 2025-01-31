@@ -119,7 +119,7 @@ for i in all_roll:
      m[s_rows.iloc[j]['Timestamp']]=m.get(s_rows.iloc[j]['Timestamp'],"")+str(s_rows.iloc[j]['Summarise your days learing on the topics.'])
     
   k = df[df['Roll Number']==i].iloc[0]['Name']+f"({i})"
-  all_learnings[k] = all_learnings.get(k,{})+m
+  all_learnings[k] = all_learnings.get(k,m)
 # all_learnings    
 
 for i in total_duration_map:
