@@ -49,7 +49,7 @@ def carousel(map):
               st.write(f"## {j}")
               st.write(d[j])
 
-    col1, col2 = st.columns([7,1])
+    col1, col2 = st.columns([9,1])
     
     with col1:
         if st.button("Previous"):
