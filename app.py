@@ -107,8 +107,8 @@ for i in all_roll:
   total_duration_map[i]=total_duration_map.get(i,None)
   arr = []
   for j in range(len(selected_rows)):
-    start_time=selected_rows.iloc[j]['What was your approximate start time of study today?']
-    end_time=selected_rows.iloc[j]['What was your approximate  of time of LLM studies today? You are expected to study for 1 hour minimum']
+    start_time=selected_rows.iloc[j]['What was your approximate START time of study today?']
+    end_time=selected_rows.iloc[j]['What was your approximate  END time of LLM studies today? You are expected to study for 1 hour minimum']
     arr.append(get_time_difference(start_time, end_time))
   total_duration_map[i]=add_time_durations(arr)
 
