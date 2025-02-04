@@ -99,6 +99,7 @@ YOUR_SHEET_ID='15iywUXaAfWWbv4Bc7ipV_0myV2WvYZ6HBH4gOiQNFO0'
 with requests.get(f'https://docs.google.com/spreadsheet/ccc?key={YOUR_SHEET_ID}&output=csv') as r:
   open('dataset.csv', 'wb').write(r.content)
   df = pd.read_csv('dataset.csv')
+  df.columns 
 all_roll=set(df['Roll Number'])
 
 total_duration_map={}
