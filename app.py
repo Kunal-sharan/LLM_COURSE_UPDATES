@@ -119,21 +119,25 @@ final_arr=[]
 all_learnings={}
 for i in all_roll:
   s_rows = df[df["Roll Number"]==i]
-  st.write(s_rows) 
   m={}
   for j in range(len(s_rows)):
      m[s_rows.iloc[j]['Timestamp']]=m.get(s_rows.iloc[j]['Timestamp'],"")+str(s_rows.iloc[j]['Summarise your days learing on the topics.'])
-     
-  k = df[df['Roll Number']==i].iloc[0]['Name']+f"({i})"
-  all_learnings[k] = all_learnings.get(k,m)
+  try:   
+     k = df[df['Roll Number']==i].iloc[0]['Name']+f"({i})"
+     all_learnings[k] = all_learnings.get(k,m)
+  except:
+     continue
 # all_learnings    
 
 for i in total_duration_map:
-  final_arr.append({
-      "Roll Number":i,
-      "Name":df[df['Roll Number']==i].iloc[0]['Name'],
-      "Total Duration(hrs:min:sec)":total_duration_map[i]
-  })
+  try: 
+     final_arr.append({
+         "Roll Number":i,
+         "Name":df[df['Roll Number']==i].iloc[0]['Name'],
+         "Total Duration(hrs:min:sec)":total_duration_map[i]
+     })
+  except:
+      continue
 # Convert Time Duration to proper time format
 df = pd.DataFrame(final_arr)
 df["Time Delta"] = pd.to_timedelta(df["Total Duration(hrs:min:sec)"]).dt.total_seconds()  # Convert to seconds
